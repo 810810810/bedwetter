@@ -13,7 +13,7 @@ while ! is_port_available "localhost" "$PORT"; do
 done
 
 # Generate a random IP address
-IP_ADDRESS=$(head /dev/urandom | tr -dc '1-9' | fold -w 3 | head -n 1).$(head /dev/urandom | tr -dc '0-9' | fold -w 3 | head -n 1).$(head /dev/urandom | tr -dc '0-9' | fold -w 3 | head -n 1).$(head /dev/urandom | tr -dc '1-9' | fold -w 3 | head -n 1)
+IP_ADDRESS=$(shuf -i 1-254 -n 1).$(shuf -i 0-255 -n 1).$(shuf -i 0-255 -n 1).$(shuf -i 1-254 -n 1)
 
 SERVER_IP="$IP_ADDRESS"
 OUTPUT_FILE="$SERVER_IP.sh"
